@@ -14,9 +14,32 @@
 - Command language
 
 ### What can it do
--
 - Start, pause, stop jobs.
 - Interact with other programs
+
+### Local variables vs environment variables
+
+```sh
+LOL=lol
+printenvs
+printenvs | grep LOL
+```
+
+```sh
+export LOL=lol
+printenvs
+printenvs | grep LOL
+```
+
+### Persisting and sourcing environment variables
+
+```sh
+echo "export LOL=lol" >> ~/.bashrc
+```
+
+```sh
+source ~/.bashrc
+```
 
 ### Job Control
 ```
