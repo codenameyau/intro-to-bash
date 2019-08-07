@@ -42,11 +42,35 @@ source ~/.bashrc
 ```
 
 ### Job Control
-```
-1 SIGHUP
-Hang up signal. Programs can listen for this signal and act upon it.
-This signal is sent to processes running in a terminal when you close the terminal.
+- https://bash.cyberciti.biz/guide/Sending_signal_to_Processes
+- https://www.tldp.org/LDP/abs/html/x9644.html
 
+List all processes run by user.
+```
+$ ps u
+```
+
+List all basic and elevated processes by user.
+```
+$ ps au
+```
+
+Send a signal to a process. SIGTERM (least dangerous) is sent by default.
+
+```sh
+kill -9 <process-id>
+kill -SIGKILL <process-id>
+
+# Send SIGTERM to firefox.
+killall firefox
+
+# Send SIGKILL to firefox.
+killall -9 firefox
+killall -SIGKILL firefox
+```
+
+List of common signals
+```
 2 SIGINT
 Interrupt signal. This signal is given to processes to interrupt them.
 Programs can process this signal and act upon it.
@@ -60,4 +84,24 @@ This is the default signal sent by the kill command if no signal is specified.
 9 SIGKILL
 Kill signal. This signal causes the immediate termination of the process by the Linux kernel.
 Programs cannot listen for this signal.
+
+17 SIGSTOP
+Stop signal. Suspends the current running process.
+```
+
+Send job to the background (run as daemon).
+```sh
+$ firefox
+$ firefox &
+
+# Send suspend signal (SIGSTP)
+$ ctrl-z
+
+# Send interrupt signal (SIGINT)
+$ ctrl-c
+
+# Job control
+$ jobs
+$ fg
+$ bg
 ```
