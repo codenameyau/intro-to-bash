@@ -1,13 +1,10 @@
-# Intro to Bash - Chapter 1. The Basics
+# Intro to Bash - Chapter 1. Jobs
 
 ## Table of Contents
-
-- The basics
 - Sessions
 - Environment variables
 - Job control
 - Signals
-- Scripting
 
 ### What is Bash
 - String-based scripting language
@@ -16,6 +13,18 @@
 ### What can it do
 - Start, pause, stop jobs.
 - Interact with other programs
+
+### Bash profile execution order
+
+```sh
+# Load system-wide profile.
+source /etc/profile
+
+# Load user setting profile.
+source ~/.bash_profile
+```
+
+`~/.bash_profile` is also where you can define your aliases.
 
 ### Local variables vs environment variables
 
@@ -94,14 +103,14 @@ Send job to the background (run as daemon).
 $ firefox
 $ firefox &
 
-# Send suspend signal (SIGSTP)
-$ ctrl-z
-
 # Send interrupt signal (SIGINT)
 $ ctrl-c
 
+# Send suspend signal (SIGSTP)
+$ ctrl-z
+
 # Job control
 $ jobs
-$ fg
-$ bg
+$ fg # run suspended job in foreground
+$ bg # run suspended job in background
 ```
