@@ -1,20 +1,20 @@
-# Intro to Bash - Chapter 1. Jobs
+# Intro to Bash - Chapter 1. Sessions and Jobs
 
 ## Table of Contents
 - Sessions
-- Environment variables
-- Job control
+- Variables (local vs environment)
+- Job control (process (fg) vs daemon (bg))
 - Signals
 
 ### What is Bash
-- String-based scripting language
-- Command language
+- String-based command language.
+- Each command is delimited by whitespace.
 
-### What can it do
-- Start, pause, stop jobs.
-- Interact with other programs
+### What can you do with bash
+- Start, stop, and kill jobs.
+- Run jobs in foreground and background.
 
-### Bash profile execution order
+### Bash session and profile sourcing
 
 ```sh
 # Load system-wide profile.
@@ -26,14 +26,21 @@ source ~/.bash_profile
 
 `~/.bash_profile` is also where you can define your aliases.
 
-### Local variables vs environment variables
+## Variables
 
+Why this doesn't work.
+```sh
+LOL = lol
+```
+
+Local variables
 ```sh
 LOL=lol
 printenvs
 printenvs | grep LOL
 ```
 
+Environment variables
 ```sh
 export LOL=lol
 printenvs
@@ -50,7 +57,7 @@ echo "export LOL=lol" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### Job Control
+## Job Control
 - https://bash.cyberciti.biz/guide/Sending_signal_to_Processes
 - https://www.tldp.org/LDP/abs/html/x9644.html
 
@@ -64,18 +71,45 @@ List all basic and elevated processes by user.
 $ ps au
 ```
 
+Example commands
+```sh
+# Run sleep in foreground.
+sleep 1000
+
+# Run sleep in background.
+sleep 2000 &
+
+# Send interrupt signal (2 SIGINT)
+$ ctrl-c
+
+# Send suspend signal (17 SIGSTP)
+$ ctrl-z
+
+# Job control
+$ jobs
+
+# run suspended job in foreground (default is pop last stack)
+$ fg
+$ fg 1
+
+# run suspended job in background (default is pop last stack)
+$ bg
+$ bg 1
+```
+
+## Signals
 Send a signal to a process. SIGTERM (least dangerous) is sent by default.
 
 ```sh
 kill -9 <process-id>
 kill -SIGKILL <process-id>
 
-# Send SIGTERM to firefox.
-killall firefox
+# Send SIGTERM.
+killall sleep
 
-# Send SIGKILL to firefox.
-killall -9 firefox
-killall -SIGKILL firefox
+# Send SIGKILL.
+killall -9 sleep
+killall -SIGKILL sleep
 ```
 
 List of common signals
@@ -85,7 +119,7 @@ Interrupt signal. This signal is given to processes to interrupt them.
 Programs can process this signal and act upon it.
 You can also issue this signal directly by typing Ctrl-c in the terminal window where the program is running.
 
-15 SIGTERM
+15 SIGTERM (DEFAULT)
 Termination signal. This signal is given to processes to terminate them.
 Again, programs can process this signal and act upon it.
 This is the default signal sent by the kill command if no signal is specified.
@@ -96,21 +130,4 @@ Programs cannot listen for this signal.
 
 17 SIGSTOP
 Stop signal. Suspends the current running process.
-```
-
-Send job to the background (run as daemon).
-```sh
-$ firefox
-$ firefox &
-
-# Send interrupt signal (SIGINT)
-$ ctrl-c
-
-# Send suspend signal (SIGSTP)
-$ ctrl-z
-
-# Job control
-$ jobs
-$ fg # run suspended job in foreground
-$ bg # run suspended job in background
 ```
