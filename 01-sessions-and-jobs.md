@@ -14,7 +14,11 @@
 - Start, stop, and kill jobs.
 - Run jobs in foreground and background.
 
-### Bash session and profile sourcing
+## Sessions
+Every time you login to your machine, open a new terminal window or tab, it will begin a new
+terminal session. That session will end when you log out or close the terminal. 
+
+These files are sourced (or run) in this order.
 
 ```sh
 # Load system-wide profile.
@@ -24,7 +28,9 @@ source /etc/profile
 source ~/.bash_profile
 ```
 
-`~/.bash_profile` is also where you can define your aliases.
+Sidenote: 
+- `/etc/profile` is where you should specify system-wide startup commands for all users.
+- `~/.bash_profile` is where you should define your aliases.
 
 ## Variables
 
