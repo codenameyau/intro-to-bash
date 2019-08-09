@@ -5,7 +5,7 @@ Intro to bash with real-world examples and command-line tips
 
 Spacing is critical in bash. Commands are separated by spaces.
 ```sh
-# Bad. Throws an error.
+# Bad. Interprets line as 3 commands. Throws an error.
 var = 'lol'
 
 # Good. Will assign 'lol' to var.
@@ -33,4 +33,15 @@ echo "$LOL"
 cat='sunny'
 LOL="hello $cat"
 echo "$LOL"
+```
+
+Always double quote variable expansions unless you know what you're doing.
+```sh
+words="good boy does fine"
+
+# Bad. Execute 4 separate commands with 1 word arg.
+ls $words
+
+# Good. Executes a single command with 4 args.
+ls "$words"
 ```
