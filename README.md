@@ -1,7 +1,7 @@
 # intro-to-bash
 Intro to bash with real-world examples and command-line tips
 
-### Tips
+### Hot Tips
 
 Spacing is critical in bash. Commands are separated by spaces.
 ```sh
