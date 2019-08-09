@@ -17,7 +17,7 @@ var = 'lol'
 var='lol'
 ```
 
-Always use lowercase variables for local variables and uppercase variables for environment variables.
+Always use `lower_case` for local variables and `UPPER_CASE` for environment variables.
 ```sh
 # local variable.
 my_local_variable='lol'
