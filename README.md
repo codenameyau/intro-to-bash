@@ -1,5 +1,8 @@
 # intro-to-bash
-Intro to bash with real-world examples and command-line tips
+
+Recommended Resources
+- Official GNU reference: https://www.gnu.org/software/bash/manual/html_node/index.html
+- Bash Guide for Beginners: https://www.tldp.org/LDP/Bash-Beginners-Guide/html/
 
 ### Hot Tips
 
