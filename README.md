@@ -26,7 +26,7 @@ my_local_variable='lol'
 export MY_ENV_VARIABLE='lol'
 ```
 
-Always use single quotes for string literals and double quotes for interpolated strings.
+Always use **single quotes for string literals** and **double quotes for interpolated strings**.
 
 ```sh
 cat='sunny'
@@ -44,7 +44,7 @@ Always double quote variable expansions unless you know what you're doing.
 ```sh
 words="good boy does fine"
 
-# Bad. Execute 4 separate commands with 1 word arg.
+# Bad. Executes 4 separate commands with 1 word arg.
 ls $words
 
 # Good. Executes a single command with 4 args.
