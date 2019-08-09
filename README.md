@@ -4,9 +4,11 @@ Recommended Resources
 - Official GNU reference: https://www.gnu.org/software/bash/manual/html_node/index.html
 - Bash Guide for Beginners: https://www.tldp.org/LDP/Bash-Beginners-Guide/html/
 
-### Hot Tips
+## Hot Tips
 
+### How to use variables correctly
 Spacing is critical in bash since commands are separated by spaces.
+Assignments, for example, should be done without spaces.
 ```sh
 # Bad. Interprets line as 3 separate commands.
 var = 'lol'
