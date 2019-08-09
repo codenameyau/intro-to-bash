@@ -3,9 +3,9 @@ Intro to bash with real-world examples and command-line tips
 
 ### Hot Tips
 
-Spacing is critical in bash. Commands are separated by spaces.
+Spacing is critical in bash since commands are separated by spaces.
 ```sh
-# Bad. Interprets line as 3 commands. Throws an error.
+# Bad. Interprets line as 3 separate commands.
 var = 'lol'
 
 # Good. Will assign 'lol' to var.
