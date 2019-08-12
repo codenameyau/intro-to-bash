@@ -1,4 +1,7 @@
-# Intro to Bash - Chapter 1. Sessions and Jobs
+# Intro to Bash - Chapter 2. Files
+
+## References
+- http://tldp.org/LDP/intro-linux/html/sect_03_01.html
 
 ## Table of Contents
 - Files and directories
