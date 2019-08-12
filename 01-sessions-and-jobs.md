@@ -16,7 +16,7 @@
 
 ## Sessions
 Every time you login to your machine, open a new terminal window or tab, it will begin a new
-terminal session. That session will end when you log out or close the terminal. 
+terminal session. That session will end when you log out or close the terminal.
 
 These files are sourced (or run) in this order.
 
@@ -28,7 +28,7 @@ source /etc/profile
 source ~/.bash_profile
 ```
 
-Sidenote: 
+Sidenote:
 - `/etc/profile` is where you should specify system-wide startup commands for all users.
 - `~/.bash_profile` is where you should define your aliases.
 
