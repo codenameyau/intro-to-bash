@@ -38,19 +38,19 @@ This structure is different between BSD file systems like MacOSX versus inux.
 
 | Directory | Content |
 |---|---|
-| **/bin** | Common programs shared by the system and users. |
+| **/bin** | **Common programs shared by the system and users.** |
 | /boot | The startup files, the vmlinuz kernel, and in some recent distributions grub data. Grub is the GRand Unified Boot loader and is an attempt to get rid of the many different boot-loaders we know today. |
 | /dev | Contains references to all the CPU peripheral hardware, which are represented as files with special properties. |
-| **/etc** | Most important system configuration files are in /etc, this directory contains data similar to those in the Control Panel in Windows |
+| **/etc** | **Most important system configuration files are in /etc, this directory contains data similar to those in the Control Panel in Windows** |
 | /home | Home directories of every user. |
-| **/lib** | Library files, includes files for all kinds of programs needed by the system and the users to compile and run code. |
+| **/lib** | **Library files, includes files for all kinds of programs needed by the system and the users to compile and run code.** |
 | /mnt | Standard mount point for external file systems, ex: USB, external hard-drives. |
 | /opt | Typically contains extra third party software. |
 | /root | The administrative user's home directory. Mind the difference between /, the root directory and /root, the home directory of the root user. |
 | /sbin | Programs for use by the system and the system administrator. |
-| **/tmp** | Temporary space for use by the system, cleaned upon reboot, so don't use this for saving any work! |
-| **/usr** | Programs, libraries, documentation etc. for all user-related programs. |
-| **/var** | Storage for all variable files and temporary files created by users, such as log files, the mail queue, the print spooler area, space for temporary storage of files downloaded from the Internet, or to keep an image of a CD before burning it. |
+| **/tmp** | **Temporary space for use by the system, cleaned upon reboot, so don't use this for saving any work!** |
+| **/usr** | **Programs, libraries, documentation etc. for all user-related programs.** |
+| **/var** | **Storage for all variable files and temporary files created by users, such as log files, the mail queue, the print spooler area, space for temporary storage of files downloaded from the Internet, or to keep an image of a CD before burning it.** |
 
 
 ### Creating files
