@@ -1,7 +1,4 @@
-# Intro to Bash - Chapter 2. Files and Directories
-
-## References
-- http://tldp.org/LDP/intro-linux/html/sect_03_01.html
+# Chapter 2. Files and Directories
 
 ## Table of Contents
 - Files and directories
@@ -11,6 +8,8 @@
 - File permissions
 
 ### Files and directories
+http://tldp.org/LDP/intro-linux/html/sect_03_01.html
+
 > On a UNIX system, everything is a file; if something is not a file, it is a process.
 
 Use the `ls` command to list the details of the specified directory, which

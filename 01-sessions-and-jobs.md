@@ -1,4 +1,4 @@
-# Intro to Bash - Chapter 1. Sessions and Jobs
+# Chapter 1. Sessions and Jobs
 
 ## Table of Contents
 - Sessions
