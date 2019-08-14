@@ -1,4 +1,4 @@
-# Intro to Bash - Chapter 2. Files
+# Intro to Bash - Chapter 2. Files and Directories
 
 ## References
 - http://tldp.org/LDP/intro-linux/html/sect_03_01.html
@@ -63,17 +63,37 @@ Everytime a file is created, it gets the following information:
 - File size
 - Address of the file
 
-**Note:** removing files via `rm` will permanantly remove them.
 
-Creating files
+### Creating and removing files
+Note: removing files via `rm` will permanantly remove them.
+
 ```sh
 # Create a single file.
 touch index.js
 touch README.md
+
+# Remove single file.
+rm index.js
+```
+
+```sh
+# Create multiple files.
+touch index.html index.css index.js
+touch index.{html,css,js}
+
+# Remove multiple files.
+rm index.html index.css index.js
+rm index.{html,css,js}
+```
+
+Sidenote: You can use `touch` to change the modify/access date of a file.
+```sh
+touch -t YYYYMMDDHHMM.SS filename
+touch -t 201212211111 index.{html,css,js}
 ```
 
 ### Creating and removing directories
-- **Note:** removing directories via `rmdir` will permanantly remove them.
+Note: removing directories via `rmdir` will permanantly remove them.
 
 ```sh
 # Make a single folder.
@@ -103,4 +123,86 @@ rmdir folder{1,2,3}
 # Make ranged directories.
 mkdir hello{1..100}
 rmdir hello{1..100}
+```
+
+### File permissions
+
+Use `ls` to list files and permissions.
+```sh
+$ ls -lah
+
+total 0
+drwxr-xr-x   5 jorgeyaulee  wheel   160B Aug 14 15:31 .
+drwxrwxrwt  28 root         wheel   896B Aug 14 14:27 ..
+-rw-r--r--   1 jorgeyaulee  wheel     0B Aug 14 15:31 index.css
+-rw-r--r--   1 jorgeyaulee  wheel     0B Aug 14 15:31 index.html
+-rw-r--r--   1 jorgeyaulee  wheel     0B Aug 14 15:31 index.js
+```
+
+Breakdown
+```sh
+# Permissions.
+d (directory)
+rwx (user read, write, execute)
+rwx (group read, write, execute)
+rwx (other read, write, execute)
+t (root)
+
+# Owner.
+jorgeyaulee
+
+# Group.
+wheel
+```
+
+Granting and revoking permissions (standard format).
+```sh
+# Revoke (user) (executable) permissions.
+chmod u+x index.html
+
+# Revoke (user) (executable) permissions.
+chmod u-x index.html
+
+# Grant (user, guest, other) (executable) permissions.
+chmod ugo+x index.html
+
+# Revoke (user, guest, other) (executable) permissions.
+chmod ugo-x index.html
+
+# Granting all users all permissions.
+chmod ugo+rwx index.html
+
+# Revoking all users all permissions.
+chmod ugo-rwx index.html
+```
+
+Granting and revoking permissions (octal format).
+```sh
+# Granting all users all permissions.
+chmod 777 index.html
+
+# Grant only user all permissions.
+chmod 700 index.html
+
+# Revoking all users all permissions.
+chmod 000 index.html
+```
+
+Changing owners.
+```sh
+chown <user> <file>
+chown root index.html
+```
+
+#### Sudo
+As a last resort, use `sudo` (superuser do) to grant the current user
+superuser access to a command, which bypasses all permissions.
+```sh
+sudo chmod 700 index.html
+```
+
+As a final-break-glass last resort, switch to the root user.
+```sh
+sudo su -
+whoami
 ```
