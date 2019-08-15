@@ -1,10 +1,11 @@
-# Chapter 2. Files and Directories
+# Chapter 2. Files and Permissions
 
 ## Table of Contents
 - Files and directories
 - UNIX directory structure
 - Creating and removing files
 - Creating and removing directories
+- Moving files and directories
 - File permissions
 
 ### Files and directories
@@ -124,7 +125,38 @@ mkdir hello{1..100}
 rmdir hello{1..100}
 ```
 
+### Moving files and directories
+The `mv` command is used to move and rename files and directoies. If a file
+already exists you will be prompted to overrwrite the existing file.
+
+```sh
+# Renaming index.html to hello.html
+mv index.html hello.html
+
+# Moving index.html to the tmp directory
+mv index.html /tmp/index.html
+```
+
+The `rename` command is useful for renaming files using pattern matching. It
+uses sed-like syntax with perl regular expressions.
+
+```sh
+# Replace all spaces with dashes (using sed substitute).
+rename 's/ /\-/g' *
+
+# Use -n to perform a dry run (using sed substitute).
+rename -n 's/ /-/g' *
+
+# Rename all uppercase letters to lowercase (using sed transform).
+rename -f 'y/A-Z/a-z/' *
+
+# Rename all lowercase letters to uppercase (using sed transform).
+rename -f 'y/a-z/A-Z/' *
+```
+
+
 ### File permissions
+Linux permissioning is based on the **principle of least privilege**.
 
 Use `ls` to list files and permissions.
 ```sh
@@ -200,7 +232,13 @@ superuser access to a command, which bypasses all permissions.
 sudo chmod 700 index.html
 ```
 
-As a final-break-glass last resort, switch to the root user.
+Sudo also leaves an audit trail of all elevated commands and attempts.
+```sh
+```
+
+As a **break-glass last resort**, switch to the root user.
+You will be able to read, modify, delete any file as well
+as start and kill any
 ```sh
 sudo su -
 whoami
