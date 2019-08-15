@@ -52,18 +52,6 @@ This structure is different between BSD file systems like MacOSX versus Linux.
 | /usr | Programs, libraries, documentation etc. for all user-related programs. |
 | /var | Storage for all variable files and temporary files created by users, such as log files, the mail queue, the print spooler area, space for temporary storage of files downloaded from the Internet, or to keep an image of a CD before burning it. |
 
-
-### Creating files
-Everytime a file is created, it gets the following information:
-- Owner and group owner of the file
-- File type
-- Permissions
-- Date and time of creation, last read, and modified
-- Number of symbolic links to this file
-- File size
-- Address of the file
-
-
 ### Creating and removing files
 Note: removing files via `rm` will permanantly remove them.
 
