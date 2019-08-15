@@ -138,7 +138,7 @@ mv index.html /tmp/index.html
 ```
 
 The `rename` command is useful for renaming files using pattern matching. It
-uses sed-like syntax with perl regular expressions.
+uses sed with perl regular expressions.
 
 ```sh
 # Replace all spaces with dashes (using sed substitute).
