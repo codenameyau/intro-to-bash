@@ -238,7 +238,7 @@ Sudo also leaves an audit trail of all elevated commands and attempts.
 
 As a **break-glass last resort**, switch to the root user.
 You will be able to read, modify, delete any file as well
-as start and kill any
+as start and kill any process.
 ```sh
 sudo su -
 whoami
