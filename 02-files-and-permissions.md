@@ -234,6 +234,12 @@ sudo chmod 700 index.html
 
 Sudo also leaves an audit trail of all elevated commands and attempts.
 ```sh
+# Linux debian-based systems (ubuntu, mint).
+sudo less /var/log/auth.log
+
+# Linux redhat-based systems (centos, fedora).
+sudo less /var/log/secure
+sudo less /var/log/audit/audit.log
 ```
 
 As a **break-glass last resort**, switch to the root user.
