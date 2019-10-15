@@ -30,17 +30,25 @@ Always use **single quotes for string literals** and **double quotes for interpo
 
 ```sh
 cat='sunny'
-LOL='hello $cat'
-echo "$LOL"
+lol='hello $cat'
+echo "$lol"
+
+# prints
+# hello $cat
 ```
 
 ```sh
 cat='sunny'
-LOL="hello $cat"
-echo "$LOL"
+lol="hello $cat"
+echo "$lol"
+
+# prints
+# hello sunny
 ```
 
-Always double quote variable expansions unless you know what you're doing.
+Always double quote variables unless you know what you're doing. The only exceptions
+are for loops and the test expression syntax with double brackets, e.g. `[[ $name = 'cat' ]]`.
+
 ```sh
 words="good boy does fine"
 
